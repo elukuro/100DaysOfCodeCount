@@ -8,15 +8,15 @@ export default {
         data:{}
     },
     getters:{
-        newState(state){
+        getData(state){
             return state.data
         }
     },
     actions:{
         fetchData({state,commit}){
-            let data=http.request('http://localhost/API/index.php?username=heru_hartanto');
-            console.log(data);
-            commit('fetchNewData',data)
+            http.request('http://localhost/API/index.php?username=heru_hartanto').then(response=>{
+                commit('fetchNewData',response)
+            })
         }
     },
     mutations:{

@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    {{hello}}
+      <ol>
+          <li v-for="(item,key) in getFetch.user" v-bind:key="key">{{item.avatar}}</li>
+      </ol>
   </div>
 </template>
 
@@ -10,7 +12,6 @@ export default {
   name: 'app',
   data(){
     return{
-      username:"test"
     }
     
   },
@@ -21,6 +22,12 @@ export default {
     hello(){
       return this.$store.state.fetch.hello
     },
+    getFetch(){
+      return this.getFetch()
+    },
+    ...mapGetters({
+      getFetch:'fetch/getData'
+    })
   },
   mounted(){
     this.fetchApi()
