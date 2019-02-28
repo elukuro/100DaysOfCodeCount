@@ -1,17 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    {{hello}}
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import {mapGetters, mapActions, mapMutations} from 'vuex';
 export default {
   name: 'app',
+  data(){
+    return{
+      username:"test"
+    }
+    
+  },
   components: {
-    HelloWorld
+    
+  },
+  computed:{
+    hello(){
+      return this.$store.state.fetch.hello
+    },
+  },
+  mounted(){
+    this.fetchApi()
+  },
+  methods:{
+    ...mapActions({
+      fetchApi:'fetch/fetchData',
+    })
   }
 }
 </script>
