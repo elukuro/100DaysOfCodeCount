@@ -1,4 +1,5 @@
 <?php
+ header("Access-Control-Allow-Origin: *");
     require_once('./library/twitter-api-php/TwitterAPIExchange.php');
     $settings = array(
         'oauth_access_token' => "60275295-q2fScwaZ0B69REU3araikjwF2KbBVhLGkmVvGSegH",

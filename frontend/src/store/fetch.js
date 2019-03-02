@@ -13,8 +13,8 @@ export default {
         }
     },
     actions:{
-        fetchData({state,commit}){
-            http.request('http://localhost/API/index.php?username=heru_hartanto').then(response=>{
+        fetchData({state,commit},payload){
+            http.request('http://localhost/API/index.php?username='+payload).then(response=>{
                 commit('fetchNewData',response)
             })
         }

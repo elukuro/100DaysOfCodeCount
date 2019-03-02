@@ -1,8 +1,7 @@
 <template>
   <div id="app">
-      <ol>
-          <li v-for="(item,key) in getFetch.user" v-bind:key="key">{{item.avatar}}</li>
-      </ol>
+      <h1>this is main vue {{$route.params.id}}</h1>
+      <router-view v-bind:fetchDataValue="getFetch"></router-view>
   </div>
 </template>
 
@@ -10,7 +9,7 @@
 import {mapGetters, mapActions, mapMutations} from 'vuex';
 export default {
   name: 'app',
-  data(){
+  data(){ 
     return{
     }
     
@@ -30,7 +29,7 @@ export default {
     })
   },
   mounted(){
-    this.fetchApi()
+    this.fetchApi('heru_hartanto')
   },
   methods:{
     ...mapActions({
