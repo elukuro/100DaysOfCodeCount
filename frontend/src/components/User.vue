@@ -7,7 +7,7 @@
             <p class="title article-title">Hi {{fetchUserData.name}} 👋</p>
             <p class="subtitle is-6 article-subtitle">
                 <!-- <span>@{{fetchUserData.screen_name}}</span> | <span>{{fetchUserData.desc}}</span> -->
-                Congratulations, if you see this I know that you already start your #100DaysOfCode Journey, keep it up and remember to always happy and never give up during your learning process, it's tough sometime but it's worth it, by the way here is your ( hopefully :D) monthly journey for #100DaysOfcode
+                Congratulations, if you read this I know that you already start your #100DaysOfCode Journey, keep it up and remember to always curious and never give up, it will be tough sometime but it's  will worth it, by the way here is your ( hopefully correct :D) monthly journey for your #100DaysOfcode
             </p>
         </div>
     </div>

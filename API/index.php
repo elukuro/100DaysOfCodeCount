@@ -46,6 +46,8 @@
                 $obj->created_at=$item->created_at;
                 $obj->id=$item->id;
                 $obj->text=$item->text;
+                $obj->retweet=$item->retweet_count;
+                $obj->favorite=$item->favorite_count;
 
                 array_push($arr,$obj);
             }
