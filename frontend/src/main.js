@@ -5,14 +5,13 @@ import App from './App.vue'
 import Store from './store/index'
 
 // component import 
-import User from './components/User.vue'
-
+import Container from './containers/Container.vue'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
 
 const routes=[
-  {path:'/username/:id', component : User },
+  {path:'/:id', component : Container },
 ]
 
 const router = new VueRouter({

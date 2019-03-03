@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-      <h1>this is main vue {{$route.params.id}}</h1>
-      <router-view v-bind:fetchDataValue="getFetch"></router-view>
+    <router-view v-bind:fetchDataValue="getFetch"></router-view>
   </div>
 </template>
 
@@ -11,16 +10,13 @@ export default {
   name: 'app',
   data(){ 
     return{
+      
     }
-    
   },
   components: {
     
   },
   computed:{
-    hello(){
-      return this.$store.state.fetch.hello
-    },
     getFetch(){
       return this.getFetch()
     },
@@ -29,7 +25,7 @@ export default {
     })
   },
   mounted(){
-    this.fetchApi('heru_hartanto')
+    this.fetchApi(this.$route.params.id)
   },
   methods:{
     ...mapActions({
@@ -46,6 +42,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin:20px 10px 0px 10px;
 }
 </style>
