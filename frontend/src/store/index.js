@@ -3,11 +3,13 @@ import Vuex from 'vuex'
 
 
 import fetch from './fetch'
+import action from './action'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {
-    'fetch':fetch
+    'fetch':fetch,
+    'action':action
   }
 })

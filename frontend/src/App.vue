@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view v-bind:fetchDataValue="getFetch"></router-view>
+    <router-view v-bind:fetchDataValue="getData" v-bind:fetchCurrentMonth="getCurrentMonth"></router-view>
   </div>
 </template>
 
@@ -17,11 +17,15 @@ export default {
     
   },
   computed:{
-    getFetch(){
-      return this.getFetch()
+    getData(){
+      return this.getData()
+    },
+    getCurrentMonth(){
+      return this.getCurrentMonth()
     },
     ...mapGetters({
-      getFetch:'fetch/getData'
+      getData:'fetch/getData',
+      getCurrentMonth:'fetch/getCurrentMonth'
     })
   },
   mounted(){

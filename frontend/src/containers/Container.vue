@@ -12,14 +12,10 @@
                                 <user-component v-bind:fetchUserData="fetchDataValue.user[0]"/>
                                 <div class="columns">
                                     <div class="column is-three-quarters">
-                                       <data-component v-bind:fetchTweetData="fetchDataValue.data"/>
+                                       <data-component v-bind:fetchTweetData="fetchDataValue.data" v-bind:fetchCurrentMonth="fetchCurrentMonth"/>
                                     </div>
                                     <div class="column">
-                                        <div class="content article-body">
-                                            <p>
-                                                Hi All, I make a tiny project to preview your progress based on yout tweet that using 100DaysOfcode hashtag, hopefully you will get more clear with what you have done and keep coding.
-                                            </p>
-                                        </div>
+                                        <side-component/>
                                     </div>
                                 </div>
                             </div>
@@ -39,10 +35,11 @@ import NprogressContainer from 'vue-nprogress/src/NprogressContainer'
 
 import UserComponent from '../components/User'
 import DataComponent from '../components/Data'
+import SideComponent from '../components/Side'
 
 export default {
     name:'Container',
-    props:['fetchDataValue'],
+    props:['fetchDataValue','fetchCurrentMonth'],
     data(){
         return{
             
@@ -51,7 +48,9 @@ export default {
     components:{
         NprogressContainer,
         UserComponent,
-        DataComponent
+        DataComponent,
+        SideComponent
+
     }
 }
 </script>

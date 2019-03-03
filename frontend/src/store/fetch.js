@@ -4,13 +4,22 @@ const URL="http://localhost/API/index.php?username="
 export default {
     namespaced:true,
     state:{
-        hello:'hello',
-        data:{}
+        data:{},
+
     },
     getters:{
         getData(state){
             return state.data
-        }
+        },
+        getCurrentMonth(){
+            const monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
+            let now= new Date()
+            let dataReturn={}
+            dataReturn.monthName=monthNames[now.getMonth()]
+            dataReturn.monthCount=now.getMonth()
+            dataReturn.monthLength=new Date(now.getFullYear(), now.getMonth()+1, 0).getDate();
+            return dataReturn
+        },
     },
     actions:{
         fetchData({state,commit},payload){
@@ -21,13 +30,12 @@ export default {
                     response="false"
                     commit('fetchNewData',response)
                 }
-                
             })
         }
     },
     mutations:{
         fetchNewData(state,payload){
             state.data=payload
-        }
+        },
     }
 }
