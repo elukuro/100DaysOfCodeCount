@@ -11,6 +11,7 @@ Vue.config.productionTip = false
 Vue.use(VueRouter)
 
 const routes=[
+  {path:'/', redirect:'/_100DaysOfCode' },
   {path:'/:id', component : Container },
 ]
 

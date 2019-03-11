@@ -5,10 +5,12 @@
         </div>
         <div class="media-content has-text-centered">
             <p class="title article-title">Hi {{fetchUserData.name}} 👋</p>
-            <p class="subtitle is-6 article-subtitle">
-                <!-- <span>@{{fetchUserData.screen_name}}</span> | <span>{{fetchUserData.desc}}</span> -->
-                Congratulations, if you read this I know that you already start your #100DaysOfCode Journey, keep it up and remember to always curious and never give up, it will be tough sometime but it's  will worth it, by the way here is your ( hopefully correct :D) monthly journey for your #100DaysOfcode
-            </p>
+            <transition name="fade" mode="out-in">
+                <p class="subtitle is-6 article-subtitle">
+                    <!-- <span>@{{fetchUserData.screen_name}}</span> | <span>{{fetchUserData.desc}}</span> -->
+                    Congratulations, if you read this I know that you already start your #100DaysOfCode Journey, keep it up and remember to always curious and never give up, I know it's tough sometime but believe me that it's worth it, by the way here is your ( hopefully accurate :D) monthly journey for your #100DaysOfcode, Happy Coding
+                </p>
+            </transition>
         </div>
     </div>
 </template>
@@ -43,6 +45,12 @@ export default {
         margin-left: -30px;
         border: 3px solid #ccc;
         border-radius: 50%;
+    }
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity .5s;
+    }
+    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+        opacity: 0;
     }
 </style>
 
