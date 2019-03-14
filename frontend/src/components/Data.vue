@@ -38,7 +38,7 @@ export default {
             return this.detailData(item)
         },
         ...mapActions({
-            detailData:'action/detailData'
+            detailData:'action/detailData',
         })
         
     }

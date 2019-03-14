@@ -1,38 +1,42 @@
 <template>
     <div class="content article-body side">
         <div v-if="getTweet.text">
-            <transition name="slide-fade">
-                <template>
-                <div class="card">
-                    <div class="card-content">
-                        <div class="content">
-                            <p class="subtitle">{{getTweet.text}}</p>
-                    </div>
-                    </div>
-                    <footer class="card-footer">
-                        <span href="#" class="card-footer-item"><span class="rotate_90">🔃</span>: {{getTweet.retweet}}</span>
-                        <span href="#" class="card-footer-item">❤: {{getTweet.favorite}}</span>
-                    </footer>
-                </div>
-                </template>
-             </transition>
-        </div>
-        <div v-else>
-            <div class="card">
+            <!-- <div class="card">
                 <div class="card-content">
                     <div class="content">
-                        <p class="subtitle">Your tweet will apear here, just click the "green date" 👍</p>
-                   </div>
+                        <p class="subtitle">{{getTweetData.text}}</p>
+                </div>
+                </div>
+                <footer class="card-footer">
+                    <span href="#" class="card-footer-item"><span class="rotate_90">🔃</span>: {{getTweetData.retweet}}</span>
+                    <span href="#" class="card-footer-item">❤: {{getTweetData.favorite}}</span>
+                </footer>
+            </div> -->
+            <div class="modal" v-bind:class="(getFlag==true) ? 'is-active' : ''">
+                <div class="modal-background" v-on:click="closeModal"></div>
+                <div class="modal-content">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="content">
+                                <p class="subtitle">{{getTweetData.text}}</p>
+                        </div>
+                        </div>
+                        <footer class="card-footer">
+                            <span href="#" class="card-footer-item"><span class="rotate_90">🔃</span>: {{getTweetData.retweet}}</span>
+                            <span href="#" class="card-footer-item">❤: {{getTweetData.favorite}}</span>
+                        </footer>
+                    </div>
+                </div>
+                <button class="modal-close is-large" aria-label="close" v-on:click="closeModal"></button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <div class="content">
+                    <p class="subtitle">Your tweet will apear, just click the 👍 date</p>
                 </div>
             </div>
         </div>
-         <button @click="show = !show">
-    Toggle render
-  </button>
-  <transition name="slide-fade">
-    <p v-if="show">hello</p>
-  </transition>
-
     </div>
 </template>
 
@@ -43,15 +47,24 @@ export default {
     name:'Side',
     data(){
         return{
-            show:true
+
         }
     },
     computed:{
-        getTweet(){
-            return this.getTweet()
+        getTweetData(){
+            return this.getTweet
         },
         ...mapGetters({
-            getTweet:'action/gettersSelectedTweet'
+            getTweet:'action/gettersSelectedTweet',
+            getFlag:'action/gettersFlag'
+        })
+    },
+    methods:{
+        closeModal(){
+            return this.closeModal
+        },
+        ...mapActions({
+            closeModal:'action/closeModal'
         })
     }
 }
