@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-cloack>
         <div v-if="fetchDataValue=='false'">
             <h3>Someting wrong!</h3>
         </div>
@@ -14,9 +14,7 @@
                                     <div class="column is-three-quarters">
                                        <data-component v-bind:fetchTweetData="fetchDataValue.data" v-bind:fetchCurrentMonth="fetchCurrentMonth"/>
                                     </div>
-                                    <div class="column">
-                                        <side-component/>
-                                    </div>
+                                    <side-component/>
                                 </div>
                             </div>
                         </div>
@@ -25,17 +23,25 @@
             </div>
         </div>  
         <div v-else>
+            <div>
             <nprogress-container></nprogress-container>
+            <div class="image_loading">
+                <img src="./../../public/plant.png" width="50%"/>
+                <p>generating data...</p>
+            </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
+import 'buefy/dist/buefy.css'
 import NprogressContainer from 'vue-nprogress/src/NprogressContainer'
-
+import { Snackbar } from 'buefy/dist/components/snackbar'
 import UserComponent from '../components/User'
 import DataComponent from '../components/Data'
 import SideComponent from '../components/Side'
+
 
 export default {
     name:'Container',
@@ -51,6 +57,23 @@ export default {
         DataComponent,
         SideComponent
 
+    },
+    watch:{
+        'fetchDataValue'(){
+            if(this.fetchDataValue.data){
+                    Snackbar.open({
+                        type:'is-success',
+                        actionText: 'got it',
+                        message:'change url with your twitter account to generate your journey',
+                        duration: 8000,
+                        onAction: () => {
+                            this.$toast.open({
+                                queue: false
+                            })
+                        }
+                    })
+            }
+        }
     }
 }
 </script>
@@ -58,11 +81,15 @@ export default {
 <style lang="scss">
     @import "bulma/bulma.sass";
     html,body {
-        background: #F0F2F4;
+        background:#f2c94c;
         font-size: 14px;
     }
     .main{
         margin-top:60px;
+    }
+    .image_loading{
+        width:20%;
+        margin:20% auto;
     }
     
 </style>

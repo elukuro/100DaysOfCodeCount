@@ -58,10 +58,12 @@ export default {
         width:10px !important;
         height:10px !important;
         display:block;
-        margin:3px !important;
+        margin:6px !important;
         float:left;
     }
     .data-list{
+        clear:both;
+        overflow:hidden;
         .month_name{
             font-size:20px;
             font-weight: 500;

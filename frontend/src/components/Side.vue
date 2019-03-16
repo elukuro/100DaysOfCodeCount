@@ -30,13 +30,13 @@
                 <button class="modal-close is-large" aria-label="close" v-on:click="closeModal"></button>
             </div>
         </div>
-        <div class="card">
+        <!-- <div class="card">
             <div class="card-content">
                 <div class="content">
                     <p class="subtitle">Your tweet will apear, just click the 👍 date</p>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -70,11 +70,15 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .side{
         text-align:left;
     }
-
+    .modal-content{
+        border-radius:5px;
+        width:50%;
+        margin:0 auto;
+    }
     .side{
         .card-content{
             p{
@@ -86,13 +90,6 @@ export default {
         }
     }
     .side{
-        .rotate_90{
-            -webkit-transform: rotate(90deg);
-            -moz-transform: rotate(90deg);
-            -o-transform: rotate(90deg);
-            -ms-transform: rotate(90deg);
-            transform: rotate(90deg);
-        }
         /* Enter and leave animations can use different */
         /* durations and timing functions.              */
         .slide-fade-enter-active {
@@ -107,6 +104,13 @@ export default {
         opacity: 0;
         }
     }
+     .rotate_90{
+            -webkit-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
+        }
     
 </style>
 

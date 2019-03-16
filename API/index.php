@@ -40,7 +40,7 @@
 
     foreach($data as $item){
         if(is_array($item->entities->hashtags)){
-            $isHastagExsist = in_array('100DaysOfCode',array_map(function($o) { return $o->text; }, $item->entities->hashtags)) ? true: false;
+            $isHastagExsist = in_array('100daysofcode',array_map(function($o) { return strtolower($o->text); }, $item->entities->hashtags)) ? true: false;
             if($isHastagExsist==true){
                 $obj = new stdClass();
                 $obj->created_at=$item->created_at;
