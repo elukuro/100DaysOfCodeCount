@@ -1,7 +1,7 @@
 
 import http from '../service/http'
-//const URL="http://goheru.com/100daysofcode/index.php?username="
-const URL="http://localhost/API/index.php?username="
+const URL="http://goheru.com/100daysofcode/index.php?username="
+//const URL="http://localhost/API/index.php?username="
 export default {
     namespaced:true,
     state:{

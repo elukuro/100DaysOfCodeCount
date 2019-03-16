@@ -1,17 +1,7 @@
 <template>
     <div class="content article-body side">
         <div v-if="getTweet.text">
-            <!-- <div class="card">
-                <div class="card-content">
-                    <div class="content">
-                        <p class="subtitle">{{getTweetData.text}}</p>
-                </div>
-                </div>
-                <footer class="card-footer">
-                    <span href="#" class="card-footer-item"><span class="rotate_90">🔃</span>: {{getTweetData.retweet}}</span>
-                    <span href="#" class="card-footer-item">❤: {{getTweetData.favorite}}</span>
-                </footer>
-            </div> -->
+            
             <div class="modal" v-bind:class="(getFlag==true) ? 'is-active' : ''">
                 <div class="modal-background" v-on:click="closeModal"></div>
                 <div class="modal-content">
@@ -30,13 +20,7 @@
                 <button class="modal-close is-large" aria-label="close" v-on:click="closeModal"></button>
             </div>
         </div>
-        <!-- <div class="card">
-            <div class="card-content">
-                <div class="content">
-                    <p class="subtitle">Your tweet will apear, just click the 👍 date</p>
-                </div>
-            </div>
-        </div> -->
+      
     </div>
 </template>
 

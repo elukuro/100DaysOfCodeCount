@@ -1,5 +1,5 @@
 <template>
-    <div v-cloack>
+    <div v-cloak>
         <div v-if="fetchDataValue=='false'">
             <h3>Someting wrong!</h3>
         </div>
@@ -26,8 +26,8 @@
             <div>
             <nprogress-container></nprogress-container>
             <div class="image_loading">
-                <img src="./../../public/plant.png" width="50%"/>
-                <p>generating data...</p>
+                <img src="./../../public/plant.png" width="40%"/>
+                <p>generating...</p>
             </div>
             </div>
         </div>
@@ -67,9 +67,6 @@ export default {
                         message:'change url with your twitter account to generate your journey',
                         duration: 8000,
                         onAction: () => {
-                            this.$toast.open({
-                                queue: false
-                            })
                         }
                     })
             }
@@ -88,7 +85,7 @@ export default {
         margin-top:60px;
     }
     .image_loading{
-        width:20%;
+        width:30%;
         margin:20% auto;
     }
     

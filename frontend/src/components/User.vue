@@ -7,7 +7,6 @@
             <p class="title article-title">Hi {{fetchUserData.name}} 👋</p>
             <transition name="fade" mode="out-in">
                 <p class="subtitle is-6 article-subtitle">
-                    <!-- <span>@{{fetchUserData.screen_name}}</span> | <span>{{fetchUserData.desc}}</span> -->
                     Congratulations, if you read this I know that you already start your #100DaysOfCode Journey, keep it up and remember to always curious and never give up, I know it's tough sometime but believe me that it's worth it, by the way here is your ( hopefully accurate :D) monthly journey for your #100DaysOfcode, Happy Coding
                 </p>
             </transition>

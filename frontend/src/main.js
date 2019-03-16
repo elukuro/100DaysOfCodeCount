@@ -9,6 +9,8 @@ import Container from './containers/Container.vue'
 
 // buefy component
 import Buefy from 'buefy'
+
+import './registerServiceWorker'
 Vue.config.productionTip = false
 Vue.use(VueRouter)
 Vue.use(Buefy)
@@ -20,7 +22,7 @@ const routes=[
 ]
 
 const router = new VueRouter({
-  mode: 'history',
+  //mode: 'history',
   routes:routes
 })
 
