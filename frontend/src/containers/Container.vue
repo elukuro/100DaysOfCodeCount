@@ -1,10 +1,15 @@
 <template>
     <div v-cloak>
         <div v-if="fetchDataValue=='false'">
-            <h3>Someting wrong!</h3>
+            <div class="image_loading">
+                <h3>Someting wrong!</h3>
+            </div>
         </div>
         <div v-if="fetchDataValue.data">
-            <div class="container main">
+             <div v-if="fetchDataValue.data.length == 0">
+                    <p>Sorry but you dont have any campaign #100daysofcode</p>
+            </div>
+            <div v-else class="container main">
                 <section class="articles">
                     <div class="column is-8 is-offset-2">
                         <div class="card article">
@@ -23,12 +28,36 @@
             </div>
         </div>  
         <div v-else>
-            <div>
-            <nprogress-container></nprogress-container>
-            <div class="image_loading">
-                <img src="./../../public/plant.png" width="40%"/>
-                <p>generating...</p>
+            <div v-if="this.params_id!==undefined">
+                <nprogress-container></nprogress-container>
+                <div  class="image_loading">
+                    <img src="./../../public/plant.png" width="40%"/>
+                    <p>generating...</p>
+                </div>
             </div>
+            <div v-else-if="this.params_id==undefined">
+                <b-modal :active.sync="isCardModalActive" scroll="keep">
+                    <form action="" v-on:submit.prevent="generate">
+                        <div class="modal-card" style="width: 50%;margin:0 auto;">
+                            <header class="modal-card-head">
+                                <p class="modal-card-title">Hi, You Are Awesome 😎</p>
+                            </header>
+                            <section class="modal-card-body">
+                                <b-field>
+                                    <b-input
+                                        type="text"
+                                        v-model="text"
+                                        placeholder="Put your twitter account name here"
+                                        required>
+                                    </b-input>
+                                </b-field>
+                            </section>
+                            <footer class="modal-card-foot">
+                                <button class="button is-default is-pulled-right">generate 😏</button>
+                            </footer>
+                        </div>
+                    </form>
+                </b-modal>
             </div>
         </div>
     </div>
@@ -48,7 +77,9 @@ export default {
     props:['fetchDataValue','fetchCurrentMonth'],
     data(){
         return{
-            
+            params_id:this.$route.params.id,
+            isCardModalActive: true,
+            text:null,
         }
     },
     components:{
@@ -57,6 +88,12 @@ export default {
         DataComponent,
         SideComponent
 
+    },
+    methods:{
+        generate(){
+            //this.$router.push('/test')
+            window.location.href =`http://localhost:8080/${this.text}`
+        }
     },
     watch:{
         'fetchDataValue'(){
@@ -80,13 +117,24 @@ export default {
     html,body {
         background:#f2c94c;
         font-size: 14px;
+        overflow:hidden;
     }
     .main{
         margin-top:60px;
     }
+    .article{
+        border-radius:10px;
+    }
     .image_loading{
         width:30%;
         margin:20% auto;
+        display:block;
+        h3{
+            font-size: 40px;
+        }
+    }
+    .modal-card{
+        text-align:left;
     }
     
 </style>

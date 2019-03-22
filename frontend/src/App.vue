@@ -17,19 +17,15 @@ export default {
     
   },
   computed:{
-    getData(){
-      return this.getData()
-    },
-    getCurrentMonth(){
-      return this.getCurrentMonth()
-    },
     ...mapGetters({
       getData:'fetch/getData',
       getCurrentMonth:'fetch/getCurrentMonth'
     })
   },
   mounted(){
-    this.fetchApi(this.$route.params.id)
+    if(this.$route.params.id!==undefined){
+      this.fetchApi(this.$route.params.id)
+    }
   },
   methods:{
     ...mapActions({

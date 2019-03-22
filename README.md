@@ -9,13 +9,11 @@ This directory has two part:
 
 ### how to setup:
 ```
-git clone the project, 
+git clone the project
 ```
 
-setup twitter fetching data, you can use http://goheru.com/100daysofcode/index.php?username=TWITTER__ACCOUNT 
-or setup by your self using API folder
 ```
-cd frontend directory
+cd frontend
 ```
 
 ```
@@ -32,3 +30,15 @@ npm run serve
 ```
 npm run build 
 ```
+
+### Run your tests
+```
+npm run test
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+twitter API using https://github.com/J7mbo/twitter-api-php/wiki  thanks @J7mbo 
