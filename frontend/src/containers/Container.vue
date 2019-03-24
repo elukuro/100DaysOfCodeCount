@@ -7,7 +7,7 @@
         </div>
         <div v-if="fetchDataValue.data">
              <div v-if="fetchDataValue.data.length == 0">
-                    <p>Sorry but you dont have any campaign #100daysofcode</p>
+                    <p>Sorry but you don't have #100daysofcode</p>
             </div>
             <div v-else class="container main">
                 <section class="articles">
@@ -19,7 +19,7 @@
                                     <div class="column is-three-quarters">
                                        <data-component v-bind:fetchTweetData="fetchDataValue.data" v-bind:fetchCurrentMonth="fetchCurrentMonth"/>
                                     </div>
-                                    <side-component/>
+                                    <detail-component/>
                                 </div>
                             </div>
                         </div>
@@ -36,9 +36,10 @@
                 </div>
             </div>
             <div v-else-if="this.params_id==undefined">
-                <b-modal :active.sync="isCardModalActive" scroll="keep">
-                    <form action="" v-on:submit.prevent="generate">
-                        <div class="modal-card" style="width: 50%;margin:0 auto;">
+                <div class="modal is-active">
+                    <div class="modal-background"></div>
+                     <form action="" v-on:submit.prevent="generate" class="form-container">
+                        <div class="modal-card">
                             <header class="modal-card-head">
                                 <p class="modal-card-title">Hi, You Are Awesome 😎</p>
                             </header>
@@ -47,7 +48,7 @@
                                     <b-input
                                         type="text"
                                         v-model="text"
-                                        placeholder="Put your twitter account name here"
+                                        placeholder="Put your twitter account"
                                         required>
                                     </b-input>
                                 </b-field>
@@ -57,7 +58,8 @@
                             </footer>
                         </div>
                     </form>
-                </b-modal>
+                </div>
+
             </div>
         </div>
     </div>
@@ -69,7 +71,7 @@ import NprogressContainer from 'vue-nprogress/src/NprogressContainer'
 import { Snackbar } from 'buefy/dist/components/snackbar'
 import UserComponent from '../components/User'
 import DataComponent from '../components/Data'
-import SideComponent from '../components/Side'
+import DetailComponent from '../components/Detail'
 
 
 export default {
@@ -86,13 +88,13 @@ export default {
         NprogressContainer,
         UserComponent,
         DataComponent,
-        SideComponent
+        DetailComponent
 
     },
     methods:{
         generate(){
             //this.$router.push('/test')
-            window.location.href =`http://localhost:8080/${this.text}`
+            window.location.href =`/${this.text}`
         }
     },
     watch:{
@@ -135,6 +137,12 @@ export default {
     }
     .modal-card{
         text-align:left;
+    }
+    .form-container{
+        .modal-card{
+            width: auto;
+            margin:0 auto !important;
+        }
     }
     
 </style>

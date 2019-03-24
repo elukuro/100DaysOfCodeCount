@@ -20,9 +20,6 @@ const http={
             console.log(error)
             NPprogress.done();
         })
-
-        
-        
     }
 }
 

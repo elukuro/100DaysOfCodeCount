@@ -24,14 +24,19 @@ export default {
     },
     actions:{
         fetchData({state,commit},payload){
-            http.request(URL+payload).then(response=>{
-                if(typeof response ==='object'){
-                    commit('fetchNewData',response)
-                }else{
-                    response="false"
-                    commit('fetchNewData',response)
-                }
-            })
+            if(localStorage.getItem('data')){
+                commit('fetchNewData',JSON.parse(localStorage.getItem('data')))
+            }else{
+                http.request(URL+payload).then(response=>{
+                    if(typeof response ==='object'){
+                        commit('fetchNewData',response)
+                        localStorage.setItem('data',JSON.stringify(response))
+                    }else{
+                        response="false"
+                        commit('fetchNewData',response)
+                    }
+                })
+            }
         }
     },
     mutations:{

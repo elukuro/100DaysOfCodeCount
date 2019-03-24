@@ -11,12 +11,13 @@ import Container from './containers/Container.vue'
 import Buefy from 'buefy'
 
 //import './registerServiceWorker'
+
 Vue.config.productionTip = false
 Vue.use(VueRouter)
 Vue.use(Buefy)
 
-
 const routes=[
+  { path: '*', component: Container },
   {path:'/',component : Container },
   {path:'/:id', component : Container },
 ]
@@ -31,3 +32,7 @@ new Vue({
   store:Store,
   render: h => h(App)
 }).$mount('#app')
+
+window.setInterval(function () {
+  localStorage.removeItem('data')
+},1000*10);
