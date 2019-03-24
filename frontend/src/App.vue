@@ -24,7 +24,13 @@ export default {
   },
   mounted(){
     if(this.$route.params.id!==undefined){
-      this.fetchApi(this.$route.params.id)
+      if(this.$route.params.id ==localStorage.getItem('ACCOUNT')){
+        this.fetchApi(this.$route.params.id)
+      }else{
+        localStorage.setItem('ACCOUNT',this.$route.params.id);
+        localStorage.removeItem('data');
+        this.fetchApi(this.$route.params.id)
+      }
     }
   },
   methods:{

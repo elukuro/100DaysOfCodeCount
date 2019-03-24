@@ -17,13 +17,13 @@ Vue.use(VueRouter)
 Vue.use(Buefy)
 
 const routes=[
-  { path: '*', component: Container },
-  {path:'/',component : Container },
+  //{path:'/',component : Container },
+  {path:'/',redirect :'_100daysofcode' },
   {path:'/:id', component : Container },
 ]
 
 const router = new VueRouter({
-  mode: 'history',
+  //mode: 'history',
   routes:routes
 })
 

@@ -72,7 +72,7 @@ import { Snackbar } from 'buefy/dist/components/snackbar'
 import UserComponent from '../components/User'
 import DataComponent from '../components/Data'
 import DetailComponent from '../components/Detail'
-
+import {mapGetters, mapActions, mapMutations} from 'vuex';
 
 export default {
     name:'Container',
@@ -93,9 +93,11 @@ export default {
     },
     methods:{
         generate(){
-            //this.$router.push('/test')
-            window.location.href =`/${this.text}`
-        }
+            //window.location.href = '/#/'+this.text;
+        },
+        ...mapActions({
+            fetchApi:'fetch/fetchData',
+        })
     },
     watch:{
         'fetchDataValue'(){
@@ -119,7 +121,7 @@ export default {
     html,body {
         background:#f2c94c;
         font-size: 14px;
-        overflow:hidden;
+        //overflow:hidden;
     }
     .main{
         margin-top:60px;
