@@ -2,11 +2,6 @@
 
 ### tools to preview montly tweet of user that use #100daysofcode hashtag to preview their journey
 
-This directory has two part:
-1. API ( PHP )
-2. frontend ( vue with vuex generate using vue-cli )
-
-
 ### how to setup:
 ```
 git clone the project
@@ -41,8 +36,6 @@ npm run test
 npm run lint
 ```
 
-###Demo 
+### Demo 
 
 http://100daysofcode.goheru.com/
-
-twitter API using twitter-api-php https://github.com/J7mbo/twitter-api-php/wiki  thanks @J7mbo 
