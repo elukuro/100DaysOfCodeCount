@@ -72,7 +72,7 @@ import { Snackbar } from 'buefy/dist/components/snackbar'
 import UserComponent from '../components/User'
 import DataComponent from '../components/Data'
 import DetailComponent from '../components/Detail'
-import {mapGetters, mapActions, mapMutations} from 'vuex';
+//import {mapGetters, mapActions, mapMutations} from 'vuex';
 
 export default {
     name:'Container',
@@ -80,7 +80,7 @@ export default {
     data(){
         return{
             params_id:this.$route.params.id,
-            isCardModalActive: true,
+            //isCardModalActive: true,
             text:null,
         }
     },
@@ -93,11 +93,11 @@ export default {
     },
     methods:{
         generate(){
-            //window.location.href = '/#/'+this.text;
+            window.location.href = '/'+this.text;
         },
-        ...mapActions({
-            fetchApi:'fetch/fetchData',
-        })
+        // ...mapActions({
+        //     fetchApi:'fetch/fetchData',
+        // })
     },
     watch:{
         'fetchDataValue'(){
