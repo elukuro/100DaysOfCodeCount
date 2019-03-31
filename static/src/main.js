@@ -17,8 +17,8 @@ Vue.use(VueRouter)
 Vue.use(Buefy)
 
 const routes=[
-  //{path:'/',component : Container },
-  {path:'/',redirect :'100xcode' },
+  {path:'/',component : Container },
+  //{path:'/',redirect :'100xcode' },
   {path:'/:id', component : Container },
 ]
 
