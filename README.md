@@ -1,14 +1,12 @@
-# 100DaysOfCodeCount
-
-### tools to preview montly tweet of user that use #100daysofcode hashtag to preview their journey
+### Tools to preview tweet of user with #100daysofcode hashtag to preview their progress
 
 ### how to setup:
 ```
-git clone the project
+git clone
 ```
 
 ```
-cd frontend
+cd static
 ```
 
 ```
