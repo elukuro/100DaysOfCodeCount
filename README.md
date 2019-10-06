@@ -1,4 +1,4 @@
-### Tools to preview tweet of user with #100daysofcode hashtag to preview their progress
+### Tools to preview montly data of tweet with #100daysofcode hashtag to preview their progress
 
 ### how to setup:
 ```
@@ -37,3 +37,5 @@ npm run lint
 ### Demo 
 
 http://100daysofcode.goheru.com/
+
+create using vue
